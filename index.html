@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sirka.store — Sirke wali Pyaaz & Pickles, Bangalore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --saffron:  #D4570A;
+      --gold:     #E8A020;
+      --onion:    #9B2335;
+      --dusty:    #C96B5A;
+      --cream:    #FAF4E8;
+      --parch:    #F0E4C8;
+      --ink:      #1A0F0A;
+      --muted:    #6B4C3B;
+      --white:    #FFFDF7;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Instrument Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* TICKER */
+    .ticker {
+      background: var(--onion);
+      padding: .42rem 0;
+      overflow: hidden;
+      border-bottom: 1.5px solid var(--ink);
+    }
+    .ticker-track {
+      display: inline-flex;
+      animation: tick 28s linear infinite;
+      white-space: nowrap;
+    }
+    .ticker-track span {
+      font-size: .72rem; font-weight: 600; letter-spacing: .14em;
+      text-transform: uppercase; color: #F9D5D8;
+      margin: 0 3rem;
+    }
+    .ticker-track span b { color: #fff; }
+    @keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 3rem;
+      background: var(--cream);
+      border-bottom: 1.5px solid var(--ink);
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.65rem; font-weight: 900;
+      color: var(--ink); letter-spacing: -.5px;
+    }
+    .logo span { color: var(--saffron); }
+    .nav-right { display: flex; align-items: center; gap: 1.8rem; }
+    .nav-link {
+      font-size: .82rem; font-weight: 500; color: var(--muted);
+      text-decoration: none; letter-spacing: .02em; transition: color .2s;
+    }
+    .nav-link:hover { color: var(--ink); }
+    .nav-btn {
+      background: var(--ink); color: var(--white);
+      padding: .55rem 1.3rem; border-radius: 4px;
+      font-size: .82rem; font-weight: 600; text-decoration: none;
+      transition: background .2s;
+    }
+    .nav-btn:hover { background: var(--saffron); }
+
+    /* HERO */
+    .hero {
+      display: block;
+      min-height: auto;
+      border-bottom: 1.5px solid var(--ink);
+    }
+    .hero-left {
+      padding: 5rem 4rem 4rem;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative; overflow: hidden;
+      max-width: 780px;
+    }
+    .ring {
+      position: absolute; border-radius: 50%;
+      border: 3px solid var(--gold);
+      opacity: .12; pointer-events: none;
+    }
+    .ring-1 { width: 460px; height: 460px; top: -80px; right: -140px; }
+    .ring-2 { width: 300px; height: 300px; top: -20px; right: -80px; }
+    .ring-3 { width: 160px; height: 160px; top: 30px; right: -10px; }
+
+    .hero-kicker {
+      display: flex; align-items: center; gap: .7rem; margin-bottom: 1.8rem;
+    }
+    .kicker-bar { width: 32px; height: 2px; background: var(--saffron); }
+    .kicker-text {
+      font-size: .7rem; font-weight: 600; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--saffron);
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 5vw, 5.2rem);
+      font-weight: 900; line-height: 1.02;
+      color: var(--ink); margin-bottom: 1rem;
+    }
+    .hero h1 em { font-style: italic; color: var(--onion); display: block; }
+    .hero-desc {
+      font-size: 1rem; line-height: 1.8; color: var(--muted);
+      max-width: 430px; margin-bottom: 2.2rem;
+    }
+    .hero-ctas { display: flex; gap: .9rem; flex-wrap: wrap; }
+    .cta-main {
+      background: var(--saffron); color: var(--white);
+      padding: .85rem 2rem; border-radius: 4px;
+      font-weight: 600; font-size: .95rem; text-decoration: none;
+      border: 1.5px solid var(--ink); transition: background .2s, transform .15s;
+    }
+    .cta-main:hover { background: var(--onion); transform: translateY(-2px); }
+    .cta-ghost {
+      background: transparent; color: var(--ink);
+      padding: .85rem 1.6rem; border-radius: 4px;
+      font-weight: 500; font-size: .92rem; text-decoration: none;
+      border: 1.5px solid var(--ink); transition: background .15s;
+    }
+    .cta-ghost:hover { background: var(--parch); }
+
+    /* HERO RIGHT */
+    .hero-right { display: flex; flex-direction: column; }
+    .hero-spotlight {
+      flex: 2;
+      background: var(--onion);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 3.5rem 2rem 2.5rem;
+      border-bottom: 1.5px solid var(--ink);
+      position: relative; overflow: hidden;
+    }
+    .hero-spotlight::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 50%, #ffffff08 0%, transparent 60%);
+    }
+    .spot-badge {
+      font-size: .65rem; letter-spacing: .2em; text-transform: uppercase;
+      color: #F4A8B4; font-weight: 600; margin-bottom: 1.2rem;
+      background: rgba(255,255,255,.08); padding: .3rem .9rem; border-radius: 999px;
+    }
+    .spot-jar {
+      font-size: 7rem; display: block; margin-bottom: 1.2rem; line-height: 1;
+      filter: drop-shadow(0 8px 24px rgba(0,0,0,.3));
+      animation: bob 4s ease-in-out infinite;
+    }
+    @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .spot-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem; font-style: italic; font-weight: 700;
+      color: #fff; margin-bottom: .4rem; line-height: 1.2;
+    }
+    .spot-hindi {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; color: #F4C4CB; margin-bottom: .7rem;
+    }
+    .spot-desc { font-size: .87rem; color: #F4C4CB; line-height: 1.65; max-width: 240px; }
+
+    .hero-mini { flex: 1; display: grid; grid-template-columns: 1fr 1fr; }
+    .mini-tile {
+      padding: 1.6rem 1.4rem;
+      border-right: 1.5px solid var(--ink);
+      display: flex; flex-direction: column; align-items: flex-start;
+      transition: background .2s;
+    }
+    .mini-tile:last-child { border-right: none; }
+    .mini-tile:hover { background: var(--parch); }
+    .mini-icon { font-size: 2rem; margin-bottom: .6rem; }
+    .mini-title { font-family: 'Playfair Display', serif; font-size: .95rem; font-weight: 700; color: var(--ink); }
+    .mini-sub { font-size: .72rem; color: var(--muted); margin-top: .2rem; line-height: 1.5; }
+
+    /* STAT STRIP */
+    .about-strip {
+      background: var(--parch);
+      border-bottom: 1.5px solid var(--ink);
+      display: grid; grid-template-columns: 1fr 1.5px 1fr 1.5px 1fr;
+    }
+    .strip-div { background: var(--ink); }
+    .strip-item {
+      padding: 2.2rem 2.5rem;
+      display: flex; align-items: center; gap: 1.2rem;
+    }
+    .strip-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem; font-weight: 900;
+      color: var(--gold); line-height: 1; flex-shrink: 0;
+    }
+    .strip-item-text strong { font-size: .95rem; font-weight: 600; display: block; margin-bottom: .2rem; }
+    .strip-item-text span { font-size: .8rem; color: var(--muted); }
+
+    /* SECTION UTILS */
+    .section { padding: 5rem 3.5rem; max-width: 1140px; margin: 0 auto; }
+    .s-label {
+      font-size: .7rem; font-weight: 600; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--saffron);
+      display: flex; align-items: center; gap: .6rem; margin-bottom: .7rem;
+    }
+    .s-label::before { content: ''; width: 24px; height: 2px; background: var(--saffron); display: block; }
+    .s-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 900;
+      color: var(--ink); line-height: 1.1; margin-bottom: 2.5rem;
+    }
+
+    /* PRODUCTS */
+    .products-section { border-top: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink); }
+    .products-grid {
+      display: grid; grid-template-columns: 1.6fr 1fr 1fr;
+      border: 1.5px solid var(--ink); border-radius: 8px; overflow: hidden;
+    }
+    .prod-card { border-right: 1.5px solid var(--ink); }
+    .prod-card:last-child { border-right: none; }
+    .prod-top {
+      padding: 3rem 2rem;
+      display: flex; align-items: center; justify-content: center;
+      border-bottom: 1.5px solid var(--ink); font-size: 5.5rem;
+      position: relative; overflow: hidden;
+    }
+    .prod-top-hero { background: var(--onion); font-size: 8rem; padding: 3.5rem 2rem; }
+    .prod-top-hero::after {
+      content: '✦'; position: absolute; font-size: 14rem;
+      opacity: .05; color: #fff;
+      top: 50%; left: 50%; transform: translate(-50%,-50%);
+      pointer-events: none;
+    }
+    .prod-top-a { background: #E8F5E9; }
+    .prod-top-b { background: #FFF8E1; }
+    .prod-body { padding: 1.6rem 1.8rem 2rem; }
+    .prod-label {
+      font-size: .65rem; letter-spacing: .18em; text-transform: uppercase;
+      font-weight: 600; color: var(--saffron); margin-bottom: .5rem;
+    }
+    .prod-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 700; color: var(--ink);
+      margin-bottom: .25rem; line-height: 1.15;
+    }
+    .prod-name-hero { font-size: 2rem; }
+    .prod-hindi {
+      font-family: 'Playfair Display', serif;
+      font-style: italic; font-size: 1rem; color: var(--onion); margin-bottom: .8rem;
+    }
+    .prod-desc { font-size: .88rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.2rem; }
+    .prod-size {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .75rem; font-weight: 600;
+      background: var(--parch); padding: .3rem .8rem; border-radius: 4px;
+      border: 1px solid #D4BFA0; color: var(--muted);
+    }
+
+    /* ORDER STEPS */
+    .order-section { background: var(--ink); border-top: 1.5px solid var(--ink); }
+    .order-section .s-label { color: var(--gold); }
+    .order-section .s-label::before { background: var(--gold); }
+    .order-section .s-title { color: var(--white); margin-bottom: 2.5rem; }
+    .steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .step-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 8px; padding: 2rem 1.8rem;
+      transition: background .2s;
+    }
+    .step-card:hover { background: rgba(255,255,255,.09); }
+    .step-n {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem; font-weight: 900;
+      color: var(--gold); line-height: 1; margin-bottom: 1rem; display: block;
+    }
+    .step-card h3 { font-size: 1rem; font-weight: 600; color: #fff; margin-bottom: .5rem; }
+    .step-card p { font-size: .87rem; color: rgba(255,255,255,.5); line-height: 1.7; }
+
+    /* CONTACT BANNER */
+    .contact-banner {
+      border-top: 1.5px solid var(--ink);
+      border-bottom: 1.5px solid var(--ink);
+      background: var(--saffron);
+      padding: 4rem 3.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
+    }
+    .banner-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900;
+      color: var(--white); line-height: 1.1; margin-bottom: .5rem;
+    }
+    .banner-text h2 em { font-style: italic; color: var(--parch); }
+    .banner-text p { font-size: .92rem; color: rgba(255,255,255,.75); }
+    .banner-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .ban-btn {
+      padding: .9rem 2rem; border-radius: 4px;
+      font-weight: 600; font-size: .95rem; text-decoration: none;
+      border: 2px solid var(--ink);
+      display: inline-flex; align-items: center; gap: .5rem;
+      transition: transform .15s;
+    }
+    .ban-btn:hover { transform: translateY(-2px); }
+    .ban-btn-dark { background: var(--ink); color: var(--white); }
+    .ban-btn-light { background: var(--white); color: var(--ink); }
+
+    /* STORY */
+    .story-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+    .story-text p { font-size: .96rem; line-height: 1.85; color: var(--muted); margin-bottom: 1rem; }
+    .story-text p strong { color: var(--ink); font-weight: 600; }
+    .story-card {
+      background: var(--onion); border-radius: 8px;
+      padding: 3.5rem 2.5rem; text-align: center;
+      border: 1.5px solid var(--ink); position: relative; overflow: hidden;
+    }
+    .story-card::before {
+      content: 'सिरका';
+      position: absolute;
+      font-family: 'Playfair Display', serif;
+      font-size: 7rem; font-weight: 900;
+      color: rgba(255,255,255,.06);
+      top: 50%; left: 50%; transform: translate(-50%,-50%);
+      white-space: nowrap; pointer-events: none;
+    }
+    .story-card blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-style: italic;
+      color: #fff; line-height: 1.5; margin-bottom: 1rem; position: relative;
+    }
+    .story-card cite {
+      font-size: .78rem; color: #F4C4CB; letter-spacing: .1em;
+      text-transform: uppercase; font-style: normal; position: relative;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1.5px solid var(--ink);
+      padding: 2rem 3rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 900; color: var(--ink);
+    }
+    .footer-logo span { color: var(--saffron); }
+    footer p { font-size: .78rem; color: var(--muted); }
+
+    /* ── SPICE SECTION ── */
+    .spice-section {
+      background: var(--ink);
+      border-top: 1.5px solid var(--ink);
+      border-bottom: 1.5px solid var(--ink);
+    }
+    .spice-section .s-label { color: var(--gold); }
+    .spice-section .s-title { color: var(--white); }
+
+    .spice-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 0; border: 1.5px solid rgba(255,255,255,.12);
+      border-radius: 10px; overflow: hidden;
+    }
+    .spice-card {
+      padding: 2rem 1.6rem;
+      border-right: 1.5px solid rgba(255,255,255,.1);
+      position: relative; overflow: hidden;
+      transition: transform .2s;
+    }
+    .spice-card:last-child { border-right: none; }
+
+    .spice-card-1 { background: #2a0a0a; }
+    .spice-card-2 { background: #3d0e00; }
+    .spice-card-3 {
+      background: linear-gradient(135deg, #1a0000 0%, #3b0000 50%, #1a0000 100%);
+      position: relative;
+    }
+    /* ghost card glow pulse */
+    .spice-card-3::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(180,0,0,.35) 0%, transparent 70%);
+      animation: ghostpulse 3s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes ghostpulse {
+      0%,100% { opacity: .6; }
+      50% { opacity: 1; }
+    }
+
+    .spice-level-label {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; padding: .25rem .7rem;
+      border-radius: 3px; margin-bottom: 1rem;
+    }
+    .sl-1 { background: rgba(180,80,0,.25); color: #ffb347; border: 1px solid rgba(255,179,71,.3); }
+    .sl-2 { background: rgba(220,30,0,.25); color: #ff6b6b; border: 1px solid rgba(255,107,107,.3); }
+    .sl-3 { background: rgba(160,0,200,.2); color: #e040fb; border: 1px solid rgba(224,64,251,.3); }
+
+    .spice-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; font-weight: 900;
+      color: var(--white); margin-bottom: .3rem; line-height: 1.1;
+    }
+    .spice-chilli-name {
+      font-size: .78rem; color: rgba(255,255,255,.45);
+      letter-spacing: .05em; margin-bottom: .9rem;
+      font-style: italic;
+    }
+    .spice-desc {
+      font-size: .86rem; line-height: 1.7;
+      color: rgba(255,255,255,.65);
+    }
+    .spice-meter {
+      display: flex; gap: 4px; margin: 1.1rem 0 .8rem;
+    }
+    .spice-pip {
+      height: 6px; flex: 1; border-radius: 3px;
+      background: rgba(255,255,255,.1);
+    }
+    .pip-on-1 { background: #ffb347; }
+    .pip-on-2 { background: #ff4500; }
+    .pip-on-3 { background: #e040fb; box-shadow: 0 0 6px #e040fb; }
+
+    .spice-scoville {
+      font-size: .72rem; color: rgba(255,255,255,.3);
+      letter-spacing: .04em;
+    }
+    .spice-warning {
+      display: inline-flex; align-items: center; gap: .35rem;
+      margin-top: 1rem; padding: .35rem .8rem;
+      background: rgba(224,64,251,.12); border: 1px solid rgba(224,64,251,.3);
+      border-radius: 4px; font-size: .72rem;
+      color: #e040fb; font-weight: 600; letter-spacing: .04em;
+    }
+
+    .spice-note {
+      margin-top: 2.5rem; padding: 1.2rem 1.5rem;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 8px;
+      font-size: .88rem; color: rgba(255,255,255,.55);
+      line-height: 1.7;
+    }
+    .spice-note strong { color: var(--gold); }
+
+    /* ── PINK JAR — CSS art replacing the onion emoji ── */
+    .pink-jar-wrap {
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; height: 100%;
+    }
+    .pink-jar {
+      position: relative;
+      width: 120px; height: 140px;
+    }
+    .pj-lid {
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 72px; height: 18px;
+      background: linear-gradient(180deg, #c0924a, #8b6420);
+      border-radius: 6px 6px 0 0;
+      border: 1.5px solid rgba(0,0,0,.25);
+      z-index: 2;
+    }
+    .pj-neck {
+      position: absolute; top: 16px; left: 50%; transform: translateX(-50%);
+      width: 80px; height: 12px;
+      background: rgba(255,255,255,.45);
+      border: 1.5px solid rgba(0,0,0,.18);
+      z-index: 2;
+    }
+    .pj-body {
+      position: absolute; top: 26px; left: 50%; transform: translateX(-50%);
+      width: 110px; height: 112px;
+      border-radius: 12px 12px 18px 18px;
+      background: linear-gradient(160deg, #ff4da6 0%, #c2185b 40%, #8b003b 100%);
+      border: 2px solid rgba(0,0,0,.2);
+      overflow: hidden;
+      box-shadow: inset -8px 0 20px rgba(0,0,0,.18), inset 4px 0 12px rgba(255,255,255,.15);
+    }
+    /* shine streak */
+    .pj-body::before {
+      content: '';
+      position: absolute; top: 8px; left: 14px;
+      width: 18px; height: 70px;
+      background: linear-gradient(180deg, rgba(255,255,255,.45), transparent);
+      border-radius: 20px; transform: rotate(-8deg);
+    }
+    /* onion bulbs scattered in jar */
+    .pj-bulb {
+      position: absolute; border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #ffb3d1, #e91e8c);
+      border: 1px solid rgba(255,255,255,.3);
+      box-shadow: inset -2px -2px 4px rgba(0,0,0,.2);
+    }
+    /* Large jar version for hero spotlight */
+    .pink-jar.large { width: 160px; height: 185px; }
+    .pink-jar.large .pj-lid { width: 96px; height: 22px; }
+    .pink-jar.large .pj-neck { top: 20px; width: 106px; height: 15px; }
+    .pink-jar.large .pj-body { top: 33px; width: 148px; height: 150px; }
+
+    /* SLICED ONION visual */
+    .pink-jar.sliced .pj-bulb {
+      border-radius: 50%;
+      background: none;
+      border: 2.5px solid rgba(255,180,210,.7);
+      box-shadow: none;
+    }
+
+    /* ONION VARIANTS inside product card */
+    .variants-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: .8rem; margin-top: 1rem;
+    }
+    .variant-tile {
+      border: 1.5px solid var(--ink);
+      border-radius: 6px; padding: .9rem 1rem;
+      background: var(--cream);
+    }
+    .variant-tile .vt-icon { font-size: 1.4rem; margin-bottom: .3rem; }
+    .variant-tile .vt-name { font-weight: 700; font-size: .88rem; margin-bottom: .4rem; color: var(--ink); }
+    .variant-tile .vt-desc { font-size: .78rem; line-height: 1.55; color: var(--muted); }
+    .variant-tile .vt-tag {
+      display: inline-block; margin-top: .5rem;
+      font-size: .68rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: .15rem .5rem; border-radius: 3px;
+    }
+    .tag-bold  { background: #fce4ec; color: #880e4f; }
+    .tag-delicate { background: #e8f5e9; color: #2e7d32; }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* MOBILE */
+    @media (max-width: 800px) {
+      nav { padding: 1rem 1.4rem; }
+      .nav-right .nav-link { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 4.5rem 1.5rem 2.5rem; border-right: none; border-bottom: 1.5px solid var(--ink); }
+      .hero-right { display: none; }
+      .about-strip { grid-template-columns: 1fr; }
+      .strip-div { display: none; }
+      .strip-item { border-bottom: 1.5px solid var(--ink); }
+      .section { padding: 3rem 1.5rem; }
+      .two-prod-grid { grid-template-columns: 1fr !important; }
+      .products-grid { grid-template-columns: 1fr; }
+      .prod-card { border-right: none; border-bottom: 1.5px solid var(--ink); }
+      .steps-grid { grid-template-columns: 1fr; }
+      .story-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .contact-banner { padding: 2.5rem 1.5rem; }
+      footer { padding: 1.5rem; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>🧅 <b>Whole Baby Onions</b> — sweet, crunchy, mild</span>
+      <span>🌀 <b>Sliced Pickled Onions</b> — bold, tangy, vivid pink</span>
+      <span>🥒 Small-batch Pickled Gherkins</span>
+      <span>🌶️ Pickled Jalapeños — made fresh in Bangalore</span>
+      <span>💀 <b>Ghost Pepper</b> available on every pickle — if you dare</span>
+      <span>📦 Pickup &amp; home delivery available</span>
+      <span>🧅 <b>Whole Baby Onions</b> — sweet, crunchy, mild</span>
+      <span>🌀 <b>Sliced Pickled Onions</b> — bold, tangy, vivid pink</span>
+      <span>🥒 Small-batch Pickled Gherkins</span>
+      <span>🌶️ Pickled Jalapeños — made fresh in Bangalore</span>
+      <span>💀 <b>Ghost Pepper</b> available on every pickle — if you dare</span>
+      <span>📦 Pickup &amp; home delivery available</span>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">sirka<span>.</span>store</div>
+    <div class="nav-right">
+      <a href="#products" class="nav-link">Sirke wali Pyaaz</a>
+      <a href="#others" class="nav-link">Gherkins &amp; Jalapeños</a>
+      <a href="#story" class="nav-link">Our Story</a>
+      <a href="#order" class="nav-link">How to Order</a>
+      <a href="https://wa.me/916360100954?text=Hi!%20I%27d%20like%20to%20order%20from%20sirka.store%20%F0%9F%A7%85" target="_blank" class="nav-btn">Order Now</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="ring ring-1"></div>
+      <div class="ring ring-2"></div>
+      <div class="ring ring-3"></div>
+      <div class="hero-kicker">
+        <div class="kicker-bar"></div>
+        <span class="kicker-text">Homemade · Bangalore · Fresh to Order</span>
+      </div>
+      <h1>
+        Tangy.<br/>
+        Crunchy.<br/>
+        <em>Desi at heart.</em>
+      </h1>
+      <p class="hero-desc">
+        Small-batch pickled goods made the right way — with real vinegar, fresh produce, and zero shortcuts. Sirke wali Pyaaz on every table. Pickled cucumbers and jalapeños for the rest of life's meals.
+      </p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/916360100954?text=Hi!%20I%27d%20like%20to%20order%20from%20sirka.store%20%F0%9F%A7%85" target="_blank" class="cta-main">Order on WhatsApp →</a>
+        <a href="tel:+916360100954" class="cta-ghost">📞 Call Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAT STRIP -->
+  <div class="about-strip">
+    <div class="strip-item">
+      <div class="strip-num">3</div>
+      <div class="strip-item-text">
+        <strong>Heat levels on every pickle</strong>
+        <span>Classic · Fired Up · Ghost Pepper 💀</span>
+      </div>
+    </div>
+    <div class="strip-div"></div>
+    <div class="strip-item">
+      <div class="strip-num">0</div>
+      <div class="strip-item-text">
+        <strong>Artificial preservatives</strong>
+        <span>Just vinegar, salt &amp; fresh produce</span>
+      </div>
+    </div>
+    <div class="strip-div"></div>
+    <div class="strip-item">
+      <div class="strip-num">∞</div>
+      <div class="strip-item-text">
+        <strong>Meals made better</strong>
+        <span>Thali, biryani, tacos, burgers — all of it</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SIRKE WALI PYAAZ — DEDICATED SECTION ── -->
+  <div id="products" style="border-bottom:1.5px solid var(--ink);">
+    <div class="section reveal">
+      <div class="s-label">Our Signature</div>
+      <div class="s-title">Sirke wali Pyaaz<br/><span style="font-size:1.2rem;color:var(--muted);font-weight:400;">सिरके वाली प्याज़</span></div>
+
+      <!-- Hero image full width -->
+      <div style="border-radius:10px;overflow:hidden;border:1.5px solid var(--ink);margin-bottom:2rem;">
+        <img src="onion-both.jpg" alt="Both onion jars — whole baby onions and sliced rings" style="width:100%;height:340px;object-fit:cover;object-position:center 35%;display:block;" />
+      </div>
+
+      <p style="font-size:1rem;line-height:1.85;color:var(--muted);max-width:700px;margin-bottom:2rem;">The one that started Sirka. Whole baby onions and thinly sliced rings, both pickled in spiced white vinegar with a touch of beetroot — that's what gives them the gorgeous magenta blush. Two textures, two personalities, one brine.</p>
+
+      <!-- Two variant cards side by side -->
+      <div class="variants-grid" style="margin-bottom:1.5rem;">
+        <div class="variant-tile" style="padding:0;overflow:hidden;">
+          <img src="onion-whole.jpg" alt="Whole baby pickled onions" style="width:100%;height:180px;object-fit:cover;object-position:center 25%;display:block;" />
+          <div style="padding:1.2rem 1rem 1rem;">
+            <div class="vt-name">Whole Baby Onions</div>
+            <div class="vt-desc">Pearl-sized onions pickled whole. Milder, sweeter, and firm all the way through — a little burst of flavour with every bite. The classic dhaba companion. Great with dal, biryani, parathas, or a cheese board.</div>
+            <span class="vt-tag tag-delicate" style="margin-top:.6rem;display:inline-block;">Sweet · Crunchy · Mild</span>
+          </div>
+        </div>
+        <div class="variant-tile" style="padding:0;overflow:hidden;">
+          <img src="onion-sliced.jpg" alt="Thinly sliced pickled onion rings" style="width:100%;height:180px;object-fit:cover;object-position:center 25%;display:block;" />
+          <div style="padding:1.2rem 1rem 1rem;">
+            <div class="vt-name">Thinly Sliced Rings</div>
+            <div class="vt-desc">Red onions sliced thin and quick-pickled. They turn a vivid hot-pink in the brine and develop a sharper, more intense flavour. Silkier texture. A game-changer on tacos, sandwiches, salads, and fried eggs.</div>
+            <span class="vt-tag tag-bold" style="margin-top:.6rem;display:inline-block;">Bold · Tangy · Vibrant</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spice + size footer row -->
+      <div style="display:flex;align-items:center;flex-wrap:wrap;gap:1rem;padding:1rem 1.2rem;background:var(--parch);border-radius:6px;border:1px solid rgba(0,0,0,.08);">
+        <span style="font-size:.8rem;font-weight:600;color:var(--ink);">Available in:</span>
+        <span style="font-size:.78rem;color:var(--muted);">250ml · 500ml jars &nbsp;·&nbsp; Both styles</span>
+        <span style="margin-left:auto;display:flex;gap:.4rem;flex-wrap:wrap;align-items:center;">
+          <span style="font-size:.68rem;font-weight:600;padding:.2rem .55rem;border-radius:3px;background:rgba(180,80,0,.12);color:#c8650a;border:1px solid rgba(200,100,10,.25);">🌶️ Classic</span>
+          <span style="font-size:.68rem;font-weight:600;padding:.2rem .55rem;border-radius:3px;background:rgba(220,30,0,.1);color:#c0392b;border:1px solid rgba(220,30,0,.25);">🌶️🌶️ Fired Up</span>
+          <span style="font-size:.68rem;font-weight:600;padding:.2rem .55rem;border-radius:3px;background:rgba(120,0,180,.1);color:#8e24aa;border:1px solid rgba(142,36,170,.25);">💀 Ghost Pepper</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CUCUMBER & JALAPEÑOS ── -->
+  <div style="background:#fff;border-bottom:1.5px solid var(--ink);" id="others">
+    <div class="section reveal">
+      <div class="s-label">Also in the Jar</div>
+      <div class="s-title">Gherkins &amp;<br/>Jalapeños.</div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;" class="two-prod-grid">
+
+        <!-- CUCUMBER -->
+        <div style="border:1.5px solid var(--ink);border-radius:10px;overflow:hidden;box-shadow:4px 4px 0 var(--ink);">
+          <img src="cucumber-both.jpg" alt="Two jars of pickled gherkins and sliced cucumbers" style="width:100%;height:220px;object-fit:cover;object-position:center 30%;display:block;" />
+          <div style="padding:1.4rem 1.4rem 1.6rem;">
+            <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--saffron);margin-bottom:.5rem;">Whole &amp; Sliced</div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--ink);margin-bottom:.6rem;">Pickled Gherkins</div>
+            <p style="font-size:.88rem;line-height:1.7;color:var(--muted);margin-bottom:1rem;">Two ways — whole baby gherkins packed tight with dill and garlic, or thin-sliced cucumber rounds in a cleaner brine. The whole ones are snappy and bold; the slices are delicate and crisp. Both are excellent on burgers, sandwiches, or a ploughman's plate.</p>
+            <div style="display:flex;align-items:center;flex-wrap:wrap;gap:.5rem;">
+              <span style="font-size:.75rem;color:var(--muted);">250ml · 500ml</span>
+              <span style="margin-left:auto;display:flex;gap:.35rem;">
+                <span style="font-size:.65rem;font-weight:600;padding:.18rem .5rem;border-radius:3px;background:rgba(180,80,0,.12);color:#c8650a;border:1px solid rgba(200,100,10,.25);">🌶️ Classic</span>
+                <span style="font-size:.65rem;font-weight:600;padding:.18rem .5rem;border-radius:3px;background:rgba(220,30,0,.1);color:#c0392b;border:1px solid rgba(220,30,0,.25);">🌶️🌶️ Fired Up</span>
+                <span style="font-size:.65rem;font-weight:600;padding:.18rem .5rem;border-radius:3px;background:rgba(120,0,180,.1);color:#8e24aa;border:1px solid rgba(142,36,170,.25);">💀 Ghost Pepper</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- JALAPEÑOS -->
+        <div style="border:1.5px solid var(--ink);border-radius:10px;overflow:hidden;box-shadow:4px 4px 0 var(--ink);">
+          <img src="jalapeno-hero.jpg" alt="Jar of pickled jalapeños with bowl of sliced jalapeños" style="width:100%;height:220px;object-fit:cover;object-position:center 30%;display:block;" />
+          <div style="padding:1.4rem 1.4rem 1.6rem;">
+            <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--saffron);margin-bottom:.5rem;">Sliced</div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--ink);margin-bottom:.6rem;">Pickled Jalapeños</div>
+            <p style="font-size:.88rem;line-height:1.7;color:var(--muted);margin-bottom:1rem;">Sliced jalapeños brined with mustard seeds, cumin, and a hint of coriander — an Indian spin on the diner classic. Bright, punchy, and tangy. Exactly what your pizza, tacos, omelettes, and grilled cheese have been missing.</p>
+            <div style="display:flex;align-items:center;flex-wrap:wrap;gap:.5rem;">
+              <span style="font-size:.75rem;color:var(--muted);">250ml · 500ml</span>
+              <span style="margin-left:auto;display:flex;gap:.35rem;">
+                <span style="font-size:.65rem;font-weight:600;padding:.18rem .5rem;border-radius:3px;background:rgba(180,80,0,.12);color:#c8650a;border:1px solid rgba(200,100,10,.25);">🌶️ Classic</span>
+                <span style="font-size:.65rem;font-weight:600;padding:.18rem .5rem;border-radius:3px;background:rgba(220,30,0,.1);color:#c0392b;border:1px solid rgba(220,30,0,.25);">🌶️🌶️ Fired Up</span>
+                <span style="font-size:.65rem;font-weight:600;padding:.18rem .5rem;border-radius:3px;background:rgba(120,0,180,.1);color:#8e24aa;border:1px solid rgba(142,36,170,.25);">💀 Ghost Pepper</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Compact ghost pepper caution -->
+      <div style="margin-top:1.8rem;padding:1rem 1.2rem;background:#1a0000;border-radius:6px;border:1px solid rgba(224,64,251,.25);display:flex;gap:.8rem;align-items:flex-start;">
+        <span style="font-size:1.2rem;line-height:1;">💀</span>
+        <div>
+          <span style="font-size:.78rem;font-weight:700;color:#e040fb;letter-spacing:.04em;text-transform:uppercase;">Ghost Pepper — serious caution</span>
+          <p style="font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.65;margin-top:.3rem;">The Bhut Jolokia (Ghost Pepper) registers over 1,000,000 SHU — it is an extremely potent chilli that can cause intense burning, discomfort, and physical distress if mishandled or consumed without preparation. <strong style="color:rgba(255,255,255,.75);">Keep completely out of reach of children.</strong> Not suitable for people with acid reflux, sensitive stomachs, or low spice tolerance. Ghost Pepper jars are made in limited batches — please mention when ordering so we can confirm availability.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- HOW TO ORDER -->
+  <div class="order-section" id="order">
+    <div class="section reveal">
+      <div class="s-label">Ordering</div>
+      <div class="s-title">It's genuinely<br/>this simple.</div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <span class="step-n">01</span>
+          <h3>Pick your jars</h3>
+          <p>Choose your pickle — Sirke wali Pyaaz, Pickled Gherkins, or Jalapeños. Pick your size (250ml or 500ml) and your heat level — <strong>Classic, Fired Up, or Ghost Pepper</strong>. Mix across jars.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-n">02</span>
+          <h3>WhatsApp or call us</h3>
+          <p>Drop a message or call on <strong style="color:var(--gold);">+91 63601 00954</strong>. We confirm your order, location, and timing — no app, no checkout flow.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-n">03</span>
+          <h3>Delivery or pickup</h3>
+          <p>We deliver within Bangalore or you pick up from us directly. UPI or cash — whatever works for you.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BANNER -->
+  <div class="contact-banner reveal">
+    <div class="banner-text">
+      <h2>Ready to order?<br/><em>Let's talk.</em></h2>
+      <p>WhatsApp &amp; calls welcome · Bangalore pickup &amp; delivery</p>
+    </div>
+    <div class="banner-actions">
+      <a href="https://wa.me/916360100954?text=Hi!%20I%27d%20like%20to%20order%20from%20sirka.store%20%F0%9F%A7%85" target="_blank" class="ban-btn ban-btn-dark">💬 WhatsApp Us</a>
+      <a href="tel:+916360100954" class="ban-btn ban-btn-light">📞 63601 00954</a>
+    </div>
+  </div>
+
+  <!-- STORY -->
+  <section id="story">
+    <div class="section reveal story-inner">
+      <div class="story-text">
+        <div class="s-label">Our Story</div>
+        <div class="s-title">Born in Bangalore.<br/>Inspired by every dhaba table.</div>
+        <p>It started with Sirke wali Pyaaz — those humble little pickled onions that <strong>magically appear alongside a good meal</strong> but are somehow impossible to find good ones of in Bangalore.</p>
+        <p>So we started making our own. Small batches, <strong>real vinegar</strong>, fresh produce sourced locally, no shortcuts. <em>Sirka</em> — which means vinegar in Hindi — felt like the only right name.</p>
+        <p>We added cucumbers and jalapeños for variety. Everything is made fresh when you order. <strong>No months-old stock.</strong> Just genuinely good pickles delivered to your door.</p>
+      </div>
+      <div class="story-card">
+        <blockquote>"Every great meal deserves a great pickle."</blockquote>
+        <cite>— The sirka.store philosophy</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">sirka<span>.</span>store</div>
+    <p>Small-batch pickles · Bangalore, Karnataka · +91 63601 00954</p>
+    <p>Homemade with obsessive care 🫙</p>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }),
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
