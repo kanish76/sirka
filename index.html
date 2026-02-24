@@ -131,57 +131,6 @@
     }
     .cta-ghost:hover { background: var(--parch); }
 
-    /* HERO RIGHT */
-    .hero-right { display: flex; flex-direction: column; }
-    .hero-spotlight {
-      flex: 2;
-      background: var(--onion);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center; padding: 3.5rem 2rem 2.5rem;
-      border-bottom: 1.5px solid var(--ink);
-      position: relative; overflow: hidden;
-    }
-    .hero-spotlight::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(circle at 50% 50%, #ffffff08 0%, transparent 60%);
-    }
-    .spot-badge {
-      font-size: .65rem; letter-spacing: .2em; text-transform: uppercase;
-      color: #F4A8B4; font-weight: 600; margin-bottom: 1.2rem;
-      background: rgba(255,255,255,.08); padding: .3rem .9rem; border-radius: 999px;
-    }
-    .spot-jar {
-      font-size: 7rem; display: block; margin-bottom: 1.2rem; line-height: 1;
-      filter: drop-shadow(0 8px 24px rgba(0,0,0,.3));
-      animation: bob 4s ease-in-out infinite;
-    }
-    @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-    .spot-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.7rem; font-style: italic; font-weight: 700;
-      color: #fff; margin-bottom: .4rem; line-height: 1.2;
-    }
-    .spot-hindi {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem; color: #F4C4CB; margin-bottom: .7rem;
-    }
-    .spot-desc { font-size: .87rem; color: #F4C4CB; line-height: 1.65; max-width: 240px; }
-
-    .hero-mini { flex: 1; display: grid; grid-template-columns: 1fr 1fr; }
-    .mini-tile {
-      padding: 1.6rem 1.4rem;
-      border-right: 1.5px solid var(--ink);
-      display: flex; flex-direction: column; align-items: flex-start;
-      transition: background .2s;
-    }
-    .mini-tile:last-child { border-right: none; }
-    .mini-tile:hover { background: var(--parch); }
-    .mini-icon { font-size: 2rem; margin-bottom: .6rem; }
-    .mini-title { font-family: 'Playfair Display', serif; font-size: .95rem; font-weight: 700; color: var(--ink); }
-    .mini-sub { font-size: .72rem; color: var(--muted); margin-top: .2rem; line-height: 1.5; }
-
     /* STAT STRIP */
     .about-strip {
       background: var(--parch);
@@ -196,7 +145,7 @@
     .strip-num {
       font-family: 'Playfair Display', serif;
       font-size: 2.8rem; font-weight: 900;
-      color: var(--gold); line-height: 1; flex-shrink: 0;
+      color: var(--saffron); line-height: 1; flex-shrink: 0;
     }
     .strip-item-text strong { font-size: .95rem; font-weight: 600; display: block; margin-bottom: .2rem; }
     .strip-item-text span { font-size: .8rem; color: var(--muted); }
@@ -213,52 +162,6 @@
       font-family: 'Playfair Display', serif;
       font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 900;
       color: var(--ink); line-height: 1.1; margin-bottom: 2.5rem;
-    }
-
-    /* PRODUCTS */
-    .products-section { border-top: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink); }
-    .products-grid {
-      display: grid; grid-template-columns: 1.6fr 1fr 1fr;
-      border: 1.5px solid var(--ink); border-radius: 8px; overflow: hidden;
-    }
-    .prod-card { border-right: 1.5px solid var(--ink); }
-    .prod-card:last-child { border-right: none; }
-    .prod-top {
-      padding: 3rem 2rem;
-      display: flex; align-items: center; justify-content: center;
-      border-bottom: 1.5px solid var(--ink); font-size: 5.5rem;
-      position: relative; overflow: hidden;
-    }
-    .prod-top-hero { background: var(--onion); font-size: 8rem; padding: 3.5rem 2rem; }
-    .prod-top-hero::after {
-      content: '✦'; position: absolute; font-size: 14rem;
-      opacity: .05; color: #fff;
-      top: 50%; left: 50%; transform: translate(-50%,-50%);
-      pointer-events: none;
-    }
-    .prod-top-a { background: #E8F5E9; }
-    .prod-top-b { background: #FFF8E1; }
-    .prod-body { padding: 1.6rem 1.8rem 2rem; }
-    .prod-label {
-      font-size: .65rem; letter-spacing: .18em; text-transform: uppercase;
-      font-weight: 600; color: var(--saffron); margin-bottom: .5rem;
-    }
-    .prod-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem; font-weight: 700; color: var(--ink);
-      margin-bottom: .25rem; line-height: 1.15;
-    }
-    .prod-name-hero { font-size: 2rem; }
-    .prod-hindi {
-      font-family: 'Playfair Display', serif;
-      font-style: italic; font-size: 1rem; color: var(--onion); margin-bottom: .8rem;
-    }
-    .prod-desc { font-size: .88rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.2rem; }
-    .prod-size {
-      display: inline-flex; align-items: center; gap: .4rem;
-      font-size: .75rem; font-weight: 600;
-      background: var(--parch); padding: .3rem .8rem; border-radius: 4px;
-      border: 1px solid #D4BFA0; color: var(--muted);
     }
 
     /* ORDER STEPS */
@@ -281,6 +184,7 @@
     }
     .step-card h3 { font-size: 1rem; font-weight: 600; color: #fff; margin-bottom: .5rem; }
     .step-card p { font-size: .87rem; color: rgba(255,255,255,.5); line-height: 1.7; }
+    .step-card p strong { color: var(--gold); }
 
     /* CONTACT BANNER */
     .contact-banner {
@@ -355,166 +259,6 @@
     .footer-logo span { color: var(--saffron); }
     footer p { font-size: .78rem; color: var(--muted); }
 
-    /* ── SPICE SECTION ── */
-    .spice-section {
-      background: var(--ink);
-      border-top: 1.5px solid var(--ink);
-      border-bottom: 1.5px solid var(--ink);
-    }
-    .spice-section .s-label { color: var(--gold); }
-    .spice-section .s-title { color: var(--white); }
-
-    .spice-grid {
-      display: grid; grid-template-columns: repeat(3,1fr);
-      gap: 0; border: 1.5px solid rgba(255,255,255,.12);
-      border-radius: 10px; overflow: hidden;
-    }
-    .spice-card {
-      padding: 2rem 1.6rem;
-      border-right: 1.5px solid rgba(255,255,255,.1);
-      position: relative; overflow: hidden;
-      transition: transform .2s;
-    }
-    .spice-card:last-child { border-right: none; }
-
-    .spice-card-1 { background: #2a0a0a; }
-    .spice-card-2 { background: #3d0e00; }
-    .spice-card-3 {
-      background: linear-gradient(135deg, #1a0000 0%, #3b0000 50%, #1a0000 100%);
-      position: relative;
-    }
-    /* ghost card glow pulse */
-    .spice-card-3::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(180,0,0,.35) 0%, transparent 70%);
-      animation: ghostpulse 3s ease-in-out infinite;
-      pointer-events: none;
-    }
-    @keyframes ghostpulse {
-      0%,100% { opacity: .6; }
-      50% { opacity: 1; }
-    }
-
-    .spice-level-label {
-      display: inline-flex; align-items: center; gap: .4rem;
-      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
-      text-transform: uppercase; padding: .25rem .7rem;
-      border-radius: 3px; margin-bottom: 1rem;
-    }
-    .sl-1 { background: rgba(180,80,0,.25); color: #ffb347; border: 1px solid rgba(255,179,71,.3); }
-    .sl-2 { background: rgba(220,30,0,.25); color: #ff6b6b; border: 1px solid rgba(255,107,107,.3); }
-    .sl-3 { background: rgba(160,0,200,.2); color: #e040fb; border: 1px solid rgba(224,64,251,.3); }
-
-    .spice-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem; font-weight: 900;
-      color: var(--white); margin-bottom: .3rem; line-height: 1.1;
-    }
-    .spice-chilli-name {
-      font-size: .78rem; color: rgba(255,255,255,.45);
-      letter-spacing: .05em; margin-bottom: .9rem;
-      font-style: italic;
-    }
-    .spice-desc {
-      font-size: .86rem; line-height: 1.7;
-      color: rgba(255,255,255,.65);
-    }
-    .spice-meter {
-      display: flex; gap: 4px; margin: 1.1rem 0 .8rem;
-    }
-    .spice-pip {
-      height: 6px; flex: 1; border-radius: 3px;
-      background: rgba(255,255,255,.1);
-    }
-    .pip-on-1 { background: #ffb347; }
-    .pip-on-2 { background: #ff4500; }
-    .pip-on-3 { background: #e040fb; box-shadow: 0 0 6px #e040fb; }
-
-    .spice-scoville {
-      font-size: .72rem; color: rgba(255,255,255,.3);
-      letter-spacing: .04em;
-    }
-    .spice-warning {
-      display: inline-flex; align-items: center; gap: .35rem;
-      margin-top: 1rem; padding: .35rem .8rem;
-      background: rgba(224,64,251,.12); border: 1px solid rgba(224,64,251,.3);
-      border-radius: 4px; font-size: .72rem;
-      color: #e040fb; font-weight: 600; letter-spacing: .04em;
-    }
-
-    .spice-note {
-      margin-top: 2.5rem; padding: 1.2rem 1.5rem;
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 8px;
-      font-size: .88rem; color: rgba(255,255,255,.55);
-      line-height: 1.7;
-    }
-    .spice-note strong { color: var(--gold); }
-
-    /* ── PINK JAR — CSS art replacing the onion emoji ── */
-    .pink-jar-wrap {
-      display: flex; align-items: center; justify-content: center;
-      width: 100%; height: 100%;
-    }
-    .pink-jar {
-      position: relative;
-      width: 120px; height: 140px;
-    }
-    .pj-lid {
-      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-      width: 72px; height: 18px;
-      background: linear-gradient(180deg, #c0924a, #8b6420);
-      border-radius: 6px 6px 0 0;
-      border: 1.5px solid rgba(0,0,0,.25);
-      z-index: 2;
-    }
-    .pj-neck {
-      position: absolute; top: 16px; left: 50%; transform: translateX(-50%);
-      width: 80px; height: 12px;
-      background: rgba(255,255,255,.45);
-      border: 1.5px solid rgba(0,0,0,.18);
-      z-index: 2;
-    }
-    .pj-body {
-      position: absolute; top: 26px; left: 50%; transform: translateX(-50%);
-      width: 110px; height: 112px;
-      border-radius: 12px 12px 18px 18px;
-      background: linear-gradient(160deg, #ff4da6 0%, #c2185b 40%, #8b003b 100%);
-      border: 2px solid rgba(0,0,0,.2);
-      overflow: hidden;
-      box-shadow: inset -8px 0 20px rgba(0,0,0,.18), inset 4px 0 12px rgba(255,255,255,.15);
-    }
-    /* shine streak */
-    .pj-body::before {
-      content: '';
-      position: absolute; top: 8px; left: 14px;
-      width: 18px; height: 70px;
-      background: linear-gradient(180deg, rgba(255,255,255,.45), transparent);
-      border-radius: 20px; transform: rotate(-8deg);
-    }
-    /* onion bulbs scattered in jar */
-    .pj-bulb {
-      position: absolute; border-radius: 50%;
-      background: radial-gradient(circle at 35% 35%, #ffb3d1, #e91e8c);
-      border: 1px solid rgba(255,255,255,.3);
-      box-shadow: inset -2px -2px 4px rgba(0,0,0,.2);
-    }
-    /* Large jar version for hero spotlight */
-    .pink-jar.large { width: 160px; height: 185px; }
-    .pink-jar.large .pj-lid { width: 96px; height: 22px; }
-    .pink-jar.large .pj-neck { top: 20px; width: 106px; height: 15px; }
-    .pink-jar.large .pj-body { top: 33px; width: 148px; height: 150px; }
-
-    /* SLICED ONION visual */
-    .pink-jar.sliced .pj-bulb {
-      border-radius: 50%;
-      background: none;
-      border: 2.5px solid rgba(255,180,210,.7);
-      box-shadow: none;
-    }
-
     /* ONION VARIANTS inside product card */
     .variants-grid {
       display: grid; grid-template-columns: 1fr 1fr;
@@ -533,8 +277,8 @@
       font-size: .68rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
       padding: .15rem .5rem; border-radius: 3px;
     }
-    .tag-bold  { background: #fce4ec; color: #880e4f; }
-    .tag-delicate { background: #e8f5e9; color: #2e7d32; }
+    .tag-bold     { background: var(--parch); color: var(--muted); border: 1px solid #C8A882; }
+    .tag-delicate { background: var(--parch); color: var(--muted); border: 1px solid #C8A882; }
 
     /* REVEAL */
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity .65s ease, transform .65s ease; }
@@ -544,14 +288,13 @@
     @media (max-width: 800px) {
       nav { padding: 1rem 1.4rem; }
       .nav-right .nav-link { display: none; }
-      .hero { grid-template-columns: 1fr; }
-      .hero-left { padding: 4.5rem 1.5rem 2.5rem; border-right: none; border-bottom: 1.5px solid var(--ink); }
-      .hero-right { display: none; }
+      .hero-left { padding: 4.5rem 1.5rem 2.5rem; }
       .about-strip { grid-template-columns: 1fr; }
       .strip-div { display: none; }
       .strip-item { border-bottom: 1.5px solid var(--ink); }
       .section { padding: 3rem 1.5rem; }
       .two-prod-grid { grid-template-columns: 1fr !important; }
+      .variants-grid { grid-template-columns: 1fr !important; }
       .products-grid { grid-template-columns: 1fr; }
       .prod-card { border-right: none; border-bottom: 1.5px solid var(--ink); }
       .steps-grid { grid-template-columns: 1fr; }
@@ -566,18 +309,18 @@
   <!-- TICKER -->
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track">
-      <span>🧅 <b>Whole Baby Onions</b> — sweet, crunchy, mild</span>
-      <span>🌀 <b>Sliced Pickled Onions</b> — bold, tangy, vivid pink</span>
-      <span>🥒 Small-batch Pickled Gherkins</span>
-      <span>🌶️ Pickled Jalapeños — made fresh in Bangalore</span>
-      <span>💀 <b>Ghost Pepper</b> available on every pickle — if you dare</span>
-      <span>📦 Pickup &amp; home delivery available</span>
-      <span>🧅 <b>Whole Baby Onions</b> — sweet, crunchy, mild</span>
-      <span>🌀 <b>Sliced Pickled Onions</b> — bold, tangy, vivid pink</span>
-      <span>🥒 Small-batch Pickled Gherkins</span>
-      <span>🌶️ Pickled Jalapeños — made fresh in Bangalore</span>
-      <span>💀 <b>Ghost Pepper</b> available on every pickle — if you dare</span>
-      <span>📦 Pickup &amp; home delivery available</span>
+      <span><b>Whole Baby Onions</b> — sweet, crunchy, mild</span>
+      <span><b>Sliced Pickled Onions</b> — bold, tangy, vivid pink</span>
+      <span>Small-batch Pickled Gherkins</span>
+      <span>Pickled Jalapeños — made fresh in Bangalore</span>
+      <span><b>Ghost Pepper</b> available on every pickle — if you dare</span>
+      <span>Pickup &amp; home delivery available</span>
+      <span><b>Whole Baby Onions</b> — sweet, crunchy, mild</span>
+      <span><b>Sliced Pickled Onions</b> — bold, tangy, vivid pink</span>
+      <span>Small-batch Pickled Gherkins</span>
+      <span>Pickled Jalapeños — made fresh in Bangalore</span>
+      <span><b>Ghost Pepper</b> available on every pickle — if you dare</span>
+      <span>Pickup &amp; home delivery available</span>
     </div>
   </div>
 
@@ -589,7 +332,7 @@
       <a href="#others" class="nav-link">Gherkins &amp; Jalapeños</a>
       <a href="#story" class="nav-link">Our Story</a>
       <a href="#order" class="nav-link">How to Order</a>
-      <a href="https://wa.me/916360100954?text=Hi!%20I%27d%20like%20to%20order%20from%20sirka.store%20%F0%9F%A7%85" target="_blank" class="nav-btn">Order Now</a>
+      <a href="https://wa.me/916360100954?text=Hi!%20I%27d%20like%20to%20order%20from%20sirka.store" target="_blank" class="nav-btn">Order Now</a>
     </div>
   </nav>
 
@@ -612,8 +355,8 @@
         Small-batch pickled goods made the right way — with real vinegar, fresh produce, and zero shortcuts. Sirke wali Pyaaz on every table. Pickled cucumbers and jalapeños for the rest of life's meals.
       </p>
       <div class="hero-ctas">
-        <a href="https://wa.me/916360100954?text=Hi!%20I%27d%20like%20to%20order%20from%20sirka.store%20%F0%9F%A7%85" target="_blank" class="cta-main">Order on WhatsApp →</a>
-        <a href="tel:+916360100954" class="cta-ghost">📞 Call Us</a>
+        <a href="https://wa.me/916360100954?text=Hi!%20I%27d%20like%20to%20order%20from%20sirka.store" target="_blank" class="cta-main">Order on WhatsApp →</a>
+        <a href="tel:+916360100954" class="cta-ghost">Call Us</a>
       </div>
     </div>
   </section>
@@ -624,7 +367,7 @@
       <div class="strip-num">3</div>
       <div class="strip-item-text">
         <strong>Heat levels on every pickle</strong>
-        <span>Classic · Fired Up · Ghost Pepper 💀</span>
+        <span>Classic · Fired Up · Ghost Pepper</span>
       </div>
     </div>
     <div class="strip-div"></div>
@@ -653,7 +396,7 @@
 
       <!-- Hero image full width -->
       <div style="border-radius:10px;overflow:hidden;border:1.5px solid var(--ink);margin-bottom:2rem;">
-        <img src="onion-both.jpg" alt="Both onion jars — whole baby onions and sliced rings" style="width:100%;height:340px;object-fit:cover;object-position:center 35%;display:block;" />
+        <img src="onion-both.jpg" alt="Both onion jars — whole baby onions and sliced rings" style="width:100%;height:340px;object-fit:cover;object-position:center center;display:block;" />
       </div>
 
       <p style="font-size:1rem;line-height:1.85;color:var(--muted);max-width:700px;margin-bottom:2rem;">The one that started Sirka. Whole baby onions and thinly sliced rings, both pickled in spiced white vinegar with a touch of beetroot — that's what gives them the gorgeous magenta blush. Two textures, two personalities, one brine.</p>
@@ -661,7 +404,7 @@
       <!-- Two variant cards side by side -->
       <div class="variants-grid" style="margin-bottom:1.5rem;">
         <div class="variant-tile" style="padding:0;overflow:hidden;">
-          <img src="onion-whole.jpg" alt="Whole baby pickled onions" style="width:100%;height:180px;object-fit:cover;object-position:center 25%;display:block;" />
+          <img src="onion-whole.jpg" alt="Whole baby pickled onions" style="width:100%;height:240px;object-fit:cover;object-position:center top;display:block;" />
           <div style="padding:1.2rem 1rem 1rem;">
             <div class="vt-name">Whole Baby Onions</div>
             <div class="vt-desc">Pearl-sized onions pickled whole. Milder, sweeter, and firm all the way through — a little burst of flavour with every bite. The classic dhaba companion. Great with dal, biryani, parathas, or a cheese board.</div>
@@ -669,7 +412,7 @@
           </div>
         </div>
         <div class="variant-tile" style="padding:0;overflow:hidden;">
-          <img src="onion-sliced.jpg" alt="Thinly sliced pickled onion rings" style="width:100%;height:180px;object-fit:cover;object-position:center 25%;display:block;" />
+          <img src="onion-sliced.jpg" alt="Thinly sliced pickled onion rings" style="width:100%;height:240px;object-fit:cover;object-position:center top;display:block;" />
           <div style="padding:1.2rem 1rem 1rem;">
             <div class="vt-name">Thinly Sliced Rings</div>
             <div class="vt-desc">Red onions sliced thin and quick-pickled. They turn a vivid hot-pink in the brine and develop a sharper, more intense flavour. Silkier texture. A game-changer on tacos, sandwiches, salads, and fried eggs.</div>
@@ -681,11 +424,18 @@
       <!-- Spice + size footer row -->
       <div style="display:flex;align-items:center;flex-wrap:wrap;gap:1rem;padding:1rem 1.2rem;background:var(--parch);border-radius:6px;border:1px solid rgba(0,0,0,.08);">
         <span style="font-size:.8rem;font-weight:600;color:var(--ink);">Available in:</span>
-        <span style="font-size:.78rem;color:var(--muted);">250ml · 500ml jars &nbsp;·&nbsp; Both styles</span>
+        <span style="font-size:.78rem;color:var(--muted);">Both styles</span>
+        <span style="display:flex;gap:.5rem;align-items:center;">
+          <span style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:900;color:var(--ink);">₹149</span>
+          <span style="font-size:.72rem;color:var(--muted);">250ml</span>
+          <span style="color:var(--muted);">·</span>
+          <span style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:900;color:var(--ink);">₹269</span>
+          <span style="font-size:.72rem;color:var(--muted);">500ml</span>
+        </span>
         <span style="margin-left:auto;display:flex;gap:.4rem;flex-wrap:wrap;align-items:center;">
-          <span style="font-size:.68rem;font-weight:600;padding:.2rem .55rem;border-radius:3px;background:rgba(180,80,0,.12);color:#c8650a;border:1px solid rgba(200,100,10,.25);">🌶️ Classic</span>
-          <span style="font-size:.68rem;font-weight:600;padding:.2rem .55rem;border-radius:3px;background:rgba(220,30,0,.1);color:#c0392b;border:1px solid rgba(220,30,0,.25);">🌶️🌶️ Fired Up</span>
-          <span style="font-size:.68rem;font-weight:600;padding:.2rem .55rem;border-radius:3px;background:rgba(120,0,180,.1);color:#8e24aa;border:1px solid rgba(142,36,170,.25);">💀 Ghost Pepper</span>
+          <span style="font-size:.68rem;font-weight:600;padding:.2rem .55rem;border-radius:3px;background:rgba(180,80,0,.12);color:#c8650a;border:1px solid rgba(200,100,10,.25);">Classic</span>
+          <span style="font-size:.68rem;font-weight:600;padding:.2rem .55rem;border-radius:3px;background:rgba(220,30,0,.1);color:#c0392b;border:1px solid rgba(220,30,0,.25);">Fired Up</span>
+          <span style="font-size:.68rem;font-weight:600;padding:.2rem .55rem;border-radius:3px;background:rgba(155,35,53,.12);color:#7B1020;border:1px solid rgba(155,35,53,.3);">Ghost Pepper</span>
         </span>
       </div>
     </div>
@@ -701,17 +451,23 @@
 
         <!-- CUCUMBER -->
         <div style="border:1.5px solid var(--ink);border-radius:10px;overflow:hidden;box-shadow:4px 4px 0 var(--ink);">
-          <img src="cucumber-both.jpg" alt="Two jars of pickled gherkins and sliced cucumbers" style="width:100%;height:220px;object-fit:cover;object-position:center 30%;display:block;" />
+          <img src="cucumber-both.jpg" alt="Two jars of pickled gherkins and sliced cucumbers" style="width:100%;height:220px;object-fit:cover;object-position:center center;display:block;" />
           <div style="padding:1.4rem 1.4rem 1.6rem;">
             <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--saffron);margin-bottom:.5rem;">Whole &amp; Sliced</div>
             <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--ink);margin-bottom:.6rem;">Pickled Gherkins</div>
             <p style="font-size:.88rem;line-height:1.7;color:var(--muted);margin-bottom:1rem;">Two ways — whole baby gherkins packed tight with dill and garlic, or thin-sliced cucumber rounds in a cleaner brine. The whole ones are snappy and bold; the slices are delicate and crisp. Both are excellent on burgers, sandwiches, or a ploughman's plate.</p>
             <div style="display:flex;align-items:center;flex-wrap:wrap;gap:.5rem;">
-              <span style="font-size:.75rem;color:var(--muted);">250ml · 500ml</span>
+              <span style="display:flex;gap:.4rem;align-items:center;">
+                <span style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:900;color:var(--ink);">₹169</span>
+                <span style="font-size:.7rem;color:var(--muted);">250ml</span>
+                <span style="color:var(--muted);">·</span>
+                <span style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:900;color:var(--ink);">₹299</span>
+                <span style="font-size:.7rem;color:var(--muted);">500ml</span>
+              </span>
               <span style="margin-left:auto;display:flex;gap:.35rem;">
-                <span style="font-size:.65rem;font-weight:600;padding:.18rem .5rem;border-radius:3px;background:rgba(180,80,0,.12);color:#c8650a;border:1px solid rgba(200,100,10,.25);">🌶️ Classic</span>
-                <span style="font-size:.65rem;font-weight:600;padding:.18rem .5rem;border-radius:3px;background:rgba(220,30,0,.1);color:#c0392b;border:1px solid rgba(220,30,0,.25);">🌶️🌶️ Fired Up</span>
-                <span style="font-size:.65rem;font-weight:600;padding:.18rem .5rem;border-radius:3px;background:rgba(120,0,180,.1);color:#8e24aa;border:1px solid rgba(142,36,170,.25);">💀 Ghost Pepper</span>
+                <span style="font-size:.65rem;font-weight:600;padding:.18rem .5rem;border-radius:3px;background:rgba(180,80,0,.12);color:#c8650a;border:1px solid rgba(200,100,10,.25);">Classic</span>
+                <span style="font-size:.65rem;font-weight:600;padding:.18rem .5rem;border-radius:3px;background:rgba(220,30,0,.1);color:#c0392b;border:1px solid rgba(220,30,0,.25);">Fired Up</span>
+                <span style="font-size:.65rem;font-weight:600;padding:.18rem .5rem;border-radius:3px;background:rgba(155,35,53,.12);color:#7B1020;border:1px solid rgba(155,35,53,.3);">Ghost Pepper</span>
               </span>
             </div>
           </div>
@@ -719,17 +475,23 @@
 
         <!-- JALAPEÑOS -->
         <div style="border:1.5px solid var(--ink);border-radius:10px;overflow:hidden;box-shadow:4px 4px 0 var(--ink);">
-          <img src="jalapeno-hero.jpg" alt="Jar of pickled jalapeños with bowl of sliced jalapeños" style="width:100%;height:220px;object-fit:cover;object-position:center 30%;display:block;" />
+          <img src="jalapeno-hero.jpg" alt="Jar of pickled jalapeños with bowl of sliced jalapeños" style="width:100%;height:220px;object-fit:cover;object-position:center center;display:block;" />
           <div style="padding:1.4rem 1.4rem 1.6rem;">
             <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--saffron);margin-bottom:.5rem;">Sliced</div>
             <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--ink);margin-bottom:.6rem;">Pickled Jalapeños</div>
             <p style="font-size:.88rem;line-height:1.7;color:var(--muted);margin-bottom:1rem;">Sliced jalapeños brined with mustard seeds, cumin, and a hint of coriander — an Indian spin on the diner classic. Bright, punchy, and tangy. Exactly what your pizza, tacos, omelettes, and grilled cheese have been missing.</p>
             <div style="display:flex;align-items:center;flex-wrap:wrap;gap:.5rem;">
-              <span style="font-size:.75rem;color:var(--muted);">250ml · 500ml</span>
+              <span style="display:flex;gap:.4rem;align-items:center;">
+                <span style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:900;color:var(--ink);">₹199</span>
+                <span style="font-size:.7rem;color:var(--muted);">250ml</span>
+                <span style="color:var(--muted);">·</span>
+                <span style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:900;color:var(--ink);">₹359</span>
+                <span style="font-size:.7rem;color:var(--muted);">500ml</span>
+              </span>
               <span style="margin-left:auto;display:flex;gap:.35rem;">
-                <span style="font-size:.65rem;font-weight:600;padding:.18rem .5rem;border-radius:3px;background:rgba(180,80,0,.12);color:#c8650a;border:1px solid rgba(200,100,10,.25);">🌶️ Classic</span>
-                <span style="font-size:.65rem;font-weight:600;padding:.18rem .5rem;border-radius:3px;background:rgba(220,30,0,.1);color:#c0392b;border:1px solid rgba(220,30,0,.25);">🌶️🌶️ Fired Up</span>
-                <span style="font-size:.65rem;font-weight:600;padding:.18rem .5rem;border-radius:3px;background:rgba(120,0,180,.1);color:#8e24aa;border:1px solid rgba(142,36,170,.25);">💀 Ghost Pepper</span>
+                <span style="font-size:.65rem;font-weight:600;padding:.18rem .5rem;border-radius:3px;background:rgba(180,80,0,.12);color:#c8650a;border:1px solid rgba(200,100,10,.25);">Classic</span>
+                <span style="font-size:.65rem;font-weight:600;padding:.18rem .5rem;border-radius:3px;background:rgba(220,30,0,.1);color:#c0392b;border:1px solid rgba(220,30,0,.25);">Fired Up</span>
+                <span style="font-size:.65rem;font-weight:600;padding:.18rem .5rem;border-radius:3px;background:rgba(155,35,53,.12);color:#7B1020;border:1px solid rgba(155,35,53,.3);">Ghost Pepper</span>
               </span>
             </div>
           </div>
@@ -738,11 +500,11 @@
       </div>
 
       <!-- Compact ghost pepper caution -->
-      <div style="margin-top:1.8rem;padding:1rem 1.2rem;background:#1a0000;border-radius:6px;border:1px solid rgba(224,64,251,.25);display:flex;gap:.8rem;align-items:flex-start;">
-        <span style="font-size:1.2rem;line-height:1;">💀</span>
+      <div style="margin-top:1.8rem;padding:1rem 1.2rem;background:#160000;border-radius:6px;border:1px solid rgba(155,35,53,.4);display:flex;gap:.8rem;align-items:flex-start;">
+        
         <div>
-          <span style="font-size:.78rem;font-weight:700;color:#e040fb;letter-spacing:.04em;text-transform:uppercase;">Ghost Pepper — serious caution</span>
-          <p style="font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.65;margin-top:.3rem;">The Bhut Jolokia (Ghost Pepper) registers over 1,000,000 SHU — it is an extremely potent chilli that can cause intense burning, discomfort, and physical distress if mishandled or consumed without preparation. <strong style="color:rgba(255,255,255,.75);">Keep completely out of reach of children.</strong> Not suitable for people with acid reflux, sensitive stomachs, or low spice tolerance. Ghost Pepper jars are made in limited batches — please mention when ordering so we can confirm availability.</p>
+          <span style="font-size:.78rem;font-weight:700;color:#C0293E;letter-spacing:.04em;text-transform:uppercase;">Ghost Pepper — serious caution &nbsp;·&nbsp; <span style="font-family:'Playfair Display',serif;font-size:.9rem;">+₹30</span> on any jar</span>
+          <p style="font-size:.78rem;color:rgba(255,255,255,.45);line-height:1.65;margin-top:.3rem;">The Bhut Jolokia (Ghost Pepper) registers over 1,000,000 SHU — it is an extremely potent chilli that can cause intense burning, discomfort, and physical distress if mishandled or consumed without preparation. <strong style="color:rgba(255,255,255,.7);">Keep completely out of reach of children.</strong> Not suitable for people with acid reflux, sensitive stomachs, or low spice tolerance. Ghost Pepper jars are made in limited batches — please mention when ordering so we can confirm availability.</p>
         </div>
       </div>
 
@@ -781,8 +543,8 @@
       <p>WhatsApp &amp; calls welcome · Bangalore pickup &amp; delivery</p>
     </div>
     <div class="banner-actions">
-      <a href="https://wa.me/916360100954?text=Hi!%20I%27d%20like%20to%20order%20from%20sirka.store%20%F0%9F%A7%85" target="_blank" class="ban-btn ban-btn-dark">💬 WhatsApp Us</a>
-      <a href="tel:+916360100954" class="ban-btn ban-btn-light">📞 63601 00954</a>
+      <a href="https://wa.me/916360100954?text=Hi!%20I%27d%20like%20to%20order%20from%20sirka.store" target="_blank" class="ban-btn ban-btn-dark">WhatsApp Us</a>
+      <a href="tel:+916360100954" class="ban-btn ban-btn-light">63601 00954</a>
     </div>
   </div>
 
@@ -807,7 +569,7 @@
   <footer>
     <div class="footer-logo">sirka<span>.</span>store</div>
     <p>Small-batch pickles · Bangalore, Karnataka · +91 63601 00954</p>
-    <p>Homemade with obsessive care 🫙</p>
+    <p>Homemade with obsessive care</p>
   </footer>
 
   <script>
